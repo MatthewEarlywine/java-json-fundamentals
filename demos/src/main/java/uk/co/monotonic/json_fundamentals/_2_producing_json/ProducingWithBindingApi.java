@@ -23,7 +23,12 @@ public class ProducingWithBindingApi
     {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
-        String jsonString = objectWriter.writeValueAsString(loanApplication);
-        System.out.println(jsonString);
+        
+        String jsonString = objectWriter.writeValueAsString(loanApplication); // <-- This option works best if you want to do
+        System.out.println(jsonString); 									// something with the JSON String besides writing it
+        																	// into a stream.
+        
+      //objectWriter.writeValue(System.out, loanApplication);     <--Whereas this option sends our value directly 
+        															//		to an output stream 
     }
 }
